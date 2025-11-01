@@ -1,0 +1,233 @@
+{
+	/**
+	 * * Theme Settings
+	 */
+	//* * Font settings
+	"terminal.integrated.fontFamily": "Monaspace Argon, Fira Code, Monaco, monospace",
+	"editor.fontFamily": "Monaspace Argon, Fira Code, Monaco, monospace",
+	// Font sizes
+	"editor.fontSize": 16,
+	"terminal.integrated.fontSize": 14,
+	// Specific font features
+	"editor.fontLigatures": "'calt', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09', 'ss10', 'liga'",
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+			{
+				"scope": "comment",
+				"settings": { "fontStyle": "italic" }
+			}
+		]
+	},
+	//* * Appearance settings
+	"workbench.colorTheme": "NeoRose-VimPine",
+	"background.editor": {
+		"useFront": true,
+		"style": {
+			"opacity": 0.1
+		},
+		"images": ["https://i.redd.it/mqjnbna9y53a1.jpg"]
+	},
+	/**
+	 * *  Prettier Setttings
+	 */
+	// Auto actions / defaults
+	"prettier.withNodeModules": true,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[Html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	// Style settings
+	"prettier.jsxSingleQuote": true,
+	"prettier.singleQuote": true,
+	"prettier.singleAttributePerLine": true,
+	"prettier.useTabs": true, // Tabs are set to 2 spaces in editor settings
+	/**
+	 * * Editor Settings
+	 */
+	"editor.wordWrap": "on",
+	"editor.stickyScroll.maxLineCount": 8,
+	"editor.lineNumbers": "relative",
+	"editor.tabSize": 2,
+	// Prevents the same file being opened multiple times in different tabs
+	"workbench.editor.revealIfOpen": true,
+	/**
+	 * * Vim Settings
+	 */
+	"vim.leader": "<space>",
+	// Normal Mode Keybindings
+	"vim.normalModeKeyBindingsNonRecursive": [
+		// Join lines but keep cursor in place
+		{
+			"before": ["J"],
+			"after": ["mzJ`z"]
+		},
+		// Scroll half page up/down while keeping cursor in middle
+		{
+			"before": ["<C-k>"],
+			"after": ["<C-u>", "z", "z"]
+		},
+		{
+			"before": ["<C-j>"],
+			"after": ["<C-d>", "z", "z"]
+		},
+		// Search next/previous while keeping cursor in middle
+		{
+			"before": ["n"],
+			"after": ["n", "z", "z"]
+		},
+		{
+			"before": ["N"],
+			"after": ["N", "z", "z"]
+		},
+		// Substitute word under cursor in entire file
+		{
+			"before": ["<leader>", "s"],
+			"after": [
+				":",
+				"%",
+				"s",
+				"/",
+				"\\<",
+				"<C-r>",
+				"<C-w>",
+				"\\>",
+				"/",
+				"<C-r>",
+				"<C-w>",
+				"/",
+				"g",
+				"I",
+				"<Left>",
+				"<Left>",
+				"<Left>"
+			]
+		},
+		// Show context like method definitions, return values etc. for whatever the cursor is over
+		{
+			"before": ["K"],
+			"commands": ["editor.action.showHover"]
+		},
+		// Open a file bt quick searching the workspace
+		{
+			"before": ["<leader>", "f", "f"],
+			"commands": ["workbench.action.quickOpen"]
+		},
+		// Search for a string in the entire workspace
+		{
+			"before": ["<leader>", "f", "s"],
+			"commands": ["workbench.action.findInFiles"]
+		},
+		// Go to the definition of the symbol under the cursor
+		{
+			"before": ["g", "d"],
+			"commands": ["editor.action.goToReferences"]
+		},
+		// Search for all usages of the symbol under the cursor
+		{
+			"before": ["g", "r"],
+			"commands": ["editor.action.referenceSearch.trigger"]
+		},
+		// Rename all usages of the symbol under the cursor for the entire workspace (only targets symbols unlike the above <leader>s command)
+		{
+			"before": ["<leader>", "r"],
+			"commands": ["editor.action.rename"]
+		},
+		// Undo and Redo using VSCode's history, not Vim's
+		{
+			"before": ["u"],
+			"commands": ["undo"]
+		},
+		{
+			"before": ["U"],
+			"commands": ["redo"]
+		},
+		//* * Harpoon Bindings
+		// Add current editor to harpoon
+		{
+			"before": ["<leader>", "a"],
+			"commands": ["vscode-harpoon.addEditor"]
+		},
+		// Open the harpoon editor list
+		{
+			"before": ["<C-t>"],
+			"commands": ["vscode-harpoon.editEditors"]
+		},
+		// Go to harpoon editor 1-4
+		{
+			"before": ["<C-q>"],
+			"commands": ["vscode-harpoon.gotoEditor1"]
+		},
+		{
+			"before": ["<C-w>"],
+			"commands": ["vscode-harpoon.gotoEditor2"]
+		},
+		{
+			"before": ["<C-e>"],
+			"commands": ["vscode-harpoon.gotoEditor3"]
+		},
+		{
+			"before": ["<C-r>"],
+			"commands": ["vscode-harpoon.gotoEditor4"]
+		}
+	],
+	// Visual Mode Keybindings
+	"vim.visualModeKeyBindingsNonRecursive": [
+		// Indent and outdent selected lines
+		{
+			"before": ["<Tab>"],
+			"commands": ["editor.action.indentLines"]
+		},
+		{
+			"before": ["<S-Tab>"],
+			"commands": ["editor.action.outdentLines"]
+		},
+		// Paste without overwriting the buffer
+		{
+			"before": ["<leader>", "p"],
+			"after": ["\"", "_", "d", "P"]
+		},
+		// copy to system clipboard
+		{
+			"before": ["<leader>", "y"],
+			"after": ["\"", "+", "y"]
+		},
+		// Move selected lines up and down
+		{
+			"before": ["K"],
+			"commands": ["editor.action.moveLinesUpAction"]
+		},
+		{
+			"before": ["J"],
+			"commands": ["editor.action.moveLinesDownAction"]
+		},
+		//* * Wrap selected text with brackets/quotes just by pressing the opening character
+		{
+			"before": ["\""],
+			"after": ["c", "\"", "<C-r>", "\"", "\""]
+		},
+		{
+			"before": ["'"],
+			"after": ["c", "'", "<C-r>", "\"", "'"]
+		},
+		{
+			"before": ["`"],
+			"after": ["c", "`", "<C-r>", "\"", "`"]
+		},
+		{
+			"before": ["["],
+			"after": ["c", "[", "<C-r>", "\"", "]"]
+		},
+		{
+			"before": ["{"],
+			"after": ["c", "{", "<C-r>", "\"", "}"]
+		},
+		{
+			"before": ["("],
+			"after": ["c", "(", "<C-r>", "\"", ")"]
+		}
+	]
+}
