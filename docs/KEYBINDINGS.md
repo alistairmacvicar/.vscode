@@ -87,9 +87,35 @@
     }
     ```
 
-### Moving Files around the panes
+### Moving Files Around The Panes
 
 Whenever there isn't a group/pane, moving the file will create one, and if you move the last file in a group, It'll delete the group.
 
-- `<ALT-h>`: Move current file to the group on the right
-- `<ALT-l>`: Move current file to the group on the left
+- `<C-h>`: Move current file to the group on the right
+- `<C-l>`: Move current file to the group on the left
+
+### Navigating Lists And Menus
+- `<C-j>`: Select Next In Quick Open
+- `<C-k>`: Select Previous In Quick Open
+- 
+    ```javascript
+    if (inQuickOpen) {
+    	workbench.action.quickOpenSelectNext; // Or workbench.action.quickOpenSelectPrevious
+    }
+    ```
+- `<C-j>`: Focus Next List Item
+- `<C-k>`: Focus Previous List Item
+- 
+    ```javascript
+    if (listFocus) {
+    	list.focusDown; // Or list.focusUp
+    }
+    ```
+- `<C-j>`: Select Next Suggestion
+- `<C-k>`: Select Previous Suggestion
+- 
+    ```javascript
+    if (suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion) {
+    	selectNextSuggestion; // Or selectPrevSuggestion
+    }
+    ```
