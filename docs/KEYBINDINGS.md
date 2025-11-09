@@ -13,6 +13,7 @@
 - [VSCode Bindings](#vscode-bindings)
   - [Group Navigation](#navigating-panes-like-a-window-manager)
   - [Moving Files Between Groups](#moving-files-around-the-panes)
+  - [Navigating Lists and Menus](#navigating-lists-and-menus)
 
 ## Vim Bindings
 
@@ -119,3 +120,4 @@ Whenever there isn't a group/pane, moving the file will create one, and if you m
     	selectNextSuggestion; // Or selectPrevSuggestion
     }
     ```
+
