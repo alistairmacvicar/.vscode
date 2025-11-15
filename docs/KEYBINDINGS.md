@@ -74,7 +74,6 @@
 - `<ALT-k>`: Navigate to the view above
 - `<ALT-l>`: Navigate to the view on the left
 - `<C-i>`: Toggle the chat window. This one is 2 actions in one bind.
-
   - Just doing the sidebar toggle didn't change the focus between the chat and the editor when toggling, this is the best solution I could make.
 
     ```javascript
@@ -87,6 +86,21 @@
     	workbench.action.toggleAuxiliaryBar;
     }
     ```
+- `<C-n>`: Toggle the Terminal Panel OR create a new Chat.
+  - If the chat is focused, it makes a new one, if the secondary bar is not visible it just toggles the lower panel.
+ 
+    ```javascript
+    if (!auxiliaryBarVisible) {
+      // The right-side panel
+      workbench.action.togglePanel;
+    }
+
+    if (chatIsEnabled && inChat && chatLocation == 'panel') {
+      // Basically just means I have the "type message" box in focus
+      workbench.action.chat.newChat;
+    }
+    ```
+- `<C-b>`: Toggle the Primary Side Bar.
 
 ### Moving Files Around The Panes
 
@@ -120,4 +134,5 @@ Whenever there isn't a group/pane, moving the file will create one, and if you m
     	selectNextSuggestion; // Or selectPrevSuggestion
     }
     ```
+
 
